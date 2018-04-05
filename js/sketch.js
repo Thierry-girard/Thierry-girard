@@ -44,7 +44,7 @@ function draw()
 
     fill(255,255,0);
     //ellipse(screen.width*map(cos(horizontalBubbleAngle+90),-1,1,0.10,0.9),screen.height-(screen.height*0.25 / 2)-radHorizontalBubble, radHorizontalBubble, radHorizontalBubble);
-    image(bubbleImg,screen.width*map(cos(horizontalBubbleAngle+90),-1,1,0.10,0.9)-radBubble/2,screen.height-(screen.height* 5 / 6)-radBubble/2);
+    image(bubbleImg,screen.width*map(cos(horizontalBubbleAngle+90),-1,1,0.10,0.9)-radBubble/2,screen.height-(screen.height* 1 / 6)-radBubble/2);
     //Vertical bubble
     let deltaRotationX = sin(rotationX) - sin(verticalBubbleAngle);
     verticalBubbleAngle += map(deltaRotationX,-2,2,-5,5)
