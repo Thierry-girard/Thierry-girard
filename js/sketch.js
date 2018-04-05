@@ -20,9 +20,8 @@ function preload()
 function setup() 
 {
   createCanvas(screen.width, screen.height);
-  backgroundImg.resize(screen.width, screen.heights)
+  //backgroundImg.resize(screen.width, screen.heights)
 
-  background(backgroundImg);   
   angleMode(DEGREES);
 
   horizontalBubbleAngle = 0; 
@@ -35,7 +34,8 @@ function setup()
 
 function draw() 
 {
-  background(255,255,255);
+  clear();
+  background(backgroundImg);
 
   //A plat
   if(rotationY != null && rotationX != null)
@@ -56,7 +56,7 @@ function draw()
     //ellipse(screen.width-(screen.width*0.25/2)-radVerticalBubble, (screen.height*0.75-radHorizontalBubble)*map(cos(verticalBubbleAngle+90),-1,1,0.10,0.90), radVerticalBubble, radVerticalBubble);
     image(bubbleImg,screen.width-(screen.width*0.25/2)-radBubble, (screen.height*0.75-radBubble)*map(cos(verticalBubbleAngle+90),-1,1,0.10,0.90))
 
-    fill(0,0,0);
+    fill(255,255,255);
     text("RotationX : "+Math.round(rotationX * 10) / 10,50,screen.height/2);
     text("RotationY : "+Math.round(rotationY * 10) / 10,50,screen.height-(screen.height*0.25 / 2)-radBubble);
 
