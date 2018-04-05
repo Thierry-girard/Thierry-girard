@@ -7,19 +7,22 @@ var verticalBubbleAngle;
 
 const radBubble = 80;
 var bubbleImg;
+var backgroundImg;
 
 const DEBUG = false;
 
 function preload()
 {
   bubbleImg = loadImage("/images/bubble.png");
+  backgroundImg = loadImage("/images/background.jpg");
 }
 
 function setup() 
 {
   createCanvas(screen.width, screen.height);
+  backgroundImg.resize(screen.width, screen.heights)
 
-  background(255,255,255);   
+  background(backgroundImg);   
   angleMode(DEGREES);
 
   horizontalBubbleAngle = 0; 
