@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <!-- Set the viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+  <!-- Set character encoding -->
+  <meta charset="utf-8">
+
+  <meta name="theme-color" content="#FFFFFF">
+
+  <!-- Set title -->
+  <title>Short Name</title>
+
+  <!-- Request styles -->
+  <link rel="stylesheet" href="style/main.css" />
+  <link rel="manifest" href="manifest.json">
+  <script src="/js/static/p5.min.js" type="text/javascript"></script>
+  <script src="/js/sketch.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+
+  <div style="display:none">
+    <p>test</p>
+  </div>
+  
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(registration => {
+            console.log(`Service Worker registered! Scope: ${registration.scope}`);
+          })
+          .catch(err => {
+            console.log(`Service Worker registration failed: ${err}`);
+          });
+      });
+    }
+  </script>
+
+</body>
+
+</html>
