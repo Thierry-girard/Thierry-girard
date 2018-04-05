@@ -51,7 +51,7 @@ function draw()
 
     fill(255,255,0);
     //ellipse(screen.width-(screen.width*0.25/2)-radVerticalBubble, (screen.height*0.75-radHorizontalBubble)*map(cos(verticalBubbleAngle+90),-1,1,0.10,0.90), radVerticalBubble, radVerticalBubble);
-    image(bubbleImg,screen.width-(screen.width*0.25/2)-radBubble, (screen.height*0.75-radBubble)*map(cos(verticalBubbleAngle+90),-1,1,0.10,0.90))
+    image(bubbleImg,screen.width-(screen.width*0.25/2)-radBubble*1.5, (screen.height*0.75-radBubble)*map(cos(verticalBubbleAngle+90),-1,1,0.10,0.90))
 
     fill(0,0,0);
     text("RotationX : "+Math.round(rotationX * 10) / 10,50,screen.height/2);
