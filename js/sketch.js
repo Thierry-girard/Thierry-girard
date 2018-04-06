@@ -4,9 +4,17 @@ var horizontalBubbleAngle;
 //Last X rotation
 var verticalBubbleAngle;
 
+//Bubble size
 const radBubble = 80;
+
+//Images
 var bubbleImg;
 var backgroundImg;
+
+//Colors
+const barColor = color(87,68,46);
+const textColorCorrectAngle = color(0,0,255);
+const textColorWrongAngle = color(255,255,255);
 
 function preload()
 {
@@ -17,7 +25,6 @@ function preload()
 function setup() 
 {
   createCanvas(screen.width, screen.height);
-  //backgroundImg.resize(screen.width, screen.heights)
 
   angleMode(DEGREES);
 
@@ -34,21 +41,29 @@ function draw()
   clear();
   background(backgroundImg);
 
-  //A plat
   if(rotationY != null && rotationX != null)
   {
     //Horizontal bar
-    fill(87,68,46);
-    rect(screen.width*0.15-radBubble/2, screen.height-(screen.height* 1 / 6)-radBubble/2, screen.width*0.85+radBubble/2 - (screen.width*0.15-radBubble/2),radBubble, 40);
+    fill(barColor);
+
+    const startHorizontalBarX = screen.width*0.15-radBubble/2;
+    const startHorizontalBarY = screen.height-(screen.height* 1 / 6)-radBubble/2;
+    const horizontalBarLength = screen.width*0.85+radBubble/2 - (screen.width*0.15-radBubble/2);
+    rect(startHorizontalBarX, startHorizontalBarY, horizontalBarLength,radBubble, 40);
 
     //Vertical bar
-    rect(screen.width-(screen.width*0.15)-radBubble/2, (screen.height*0.75-radBubble/2)*0.10, radBubble, (screen.height*0.75)*0.90, 40);
+    const startVerticalBarX = screen.width-(screen.width*0.15)-radBubble/2;
+    const startVerticalBarY = (screen.height*0.75-radBubble/2)*0.10;
+    const verticalBarLength = (screen.height*0.75-radBubble/2)*0.90;
+    rect(startVerticalBarX,startVerticalBarY, radBubble, verticalBarLength, 40);
 
     //Horizontal bubble
     let deltaRotationY = sin(rotationY) - sin(horizontalBubbleAngle);
     horizontalBubbleAngle += map(deltaRotationY,-2,2,-5,5)
 
-    image(bubbleImg,screen.width*map(cos(horizontalBubbleAngle+90),-1,1,0.15,0.85)-radBubble/2,screen.height-(screen.height* 1 / 6)-radBubble/2);
+    const horizontalBubbleX = screen.width*map(cos(horizontalBubbleAngle+90),-1,1,0.15,0.85)-radBubble/2
+    const horizontalBubbleY = screen.height-(screen.height* 1 / 6)-radBubble/2;
+    image(bubbleImg,horizontalBubbleX,horizontalBubbleY);
 
     //Vertical bubble
     let deltaRotationX = sin(rotationX) - sin(verticalBubbleAngle);
