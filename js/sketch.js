@@ -68,10 +68,11 @@ function draw()
     if(rotationY <= 2 && rotationY >=2){
       fill(0, 255, 0);
     }
+    ///////////////////////////////////////////////////////
     else{
       fill(255,255,255);
     }
-    text("Angle : "+Math.round(rotationY * 10) / 10+ "°",(screen.width* 1 / 6),screen.height-(screen.height*0.25 / 2)-radBubble);
+    text("Angle : "+Math.round(rotationY * 10) / 10+ "°",(screen.width* 1 / 6),(screen.height-(screen.height*0.25 / 2))-radBubble);
   }
   else
   {
