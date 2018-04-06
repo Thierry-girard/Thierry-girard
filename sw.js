@@ -114,10 +114,6 @@ if (workbox)
   {
     "url": "manifest.json",
     "revision": "7100dd3f1f49ad1594e03347f78f0960"
-  },
-  {
-    "url": "style/main.css",
-    "revision": "628320e3f89c25f36472cda3e970e57d"
   }
 ]);
 
