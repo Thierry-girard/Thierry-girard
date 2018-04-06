@@ -12,9 +12,9 @@ var bubbleImg;
 var backgroundImg;
 
 //Colors
-const barColor = color(87,68,46);
-const textColorCorrectAngle = color(0,0,255);
-const textColorWrongAngle = color(255,255,255);
+var barColor;
+var textColorCorrectAngle;
+var textColorWrongAngle;
 
 function preload()
 {
@@ -34,6 +34,10 @@ function setup()
   textSize(20);
 
   bubbleImg.resize(radBubble,0);
+
+  barColor = color(87,68,46);
+  textColorCorrectAngle = color(0,255,0);
+  textColorWrongAngle = color(255,255,255);
 }
 
 function draw() 
@@ -61,7 +65,7 @@ function draw()
     let deltaRotationY = sin(rotationY) - sin(horizontalBubbleAngle);
     horizontalBubbleAngle += map(deltaRotationY,-2,2,-5,5)
 
-    const horizontalBubbleX = screen.width*map(cos(horizontalBubbleAngle+90),-1,1,0.15,0.85)-radBubble/2
+    const horizontalBubbleX = screen.width*map(cos(horizontalBubbleAngle+90),-1,1,0.15,0.85)-radBubble/2;
     const horizontalBubbleY = screen.height-(screen.height* 1 / 6)-radBubble/2;
     image(bubbleImg,horizontalBubbleX,horizontalBubbleY);
 
@@ -69,24 +73,18 @@ function draw()
     let deltaRotationX = sin(rotationX) - sin(verticalBubbleAngle);
     verticalBubbleAngle += map(deltaRotationX,-2,2,-5,5)
 
-    image(bubbleImg,screen.width-(screen.width*0.15)-radBubble/2, (screen.height*0.75-radBubble/2)*map(cos(verticalBubbleAngle+90),-1,1,0.10,0.90))
+    const verticalBubbleX = screen.width-(screen.width*0.15)-radBubble/2;
+    const verticalBubbleY = (screen.height*0.75-radBubble/2)*map(cos(verticalBubbleAngle+90),-1,1,0.10,0.90);
+    image(bubbleImg,verticalBubbleX,verticalBubbleY);
 
    
-    if(rotationX <= 2 && rotationX >=-2){
-      fill(0, 255, 0);
-    }
-    else{
-      fill(255,255,255);
-    }
+    const colorAngleX = rotationX <= 2 && rotationX >=-2 ? textColorCorrectAngle : textColorWrongAngle;
+    const colorAngleY = rotationY <= 2 && rotationY >=-2 ? textColorCorrectAngle : textColorWrongAngle;
+
+    fill(colorAngleX);
     text("Angle X: "+Math.round(rotationX * 10) / 10 +"°",(screen.width-(screen.width*0.15))-200,(screen.height*0.75+radBubble/2)*0.5);
-    
-    if(rotationY <= 2 && rotationY >=-2){
-      fill(0, 255, 0);
-    }
-    ///////////////////////////////////////////////////////
-    else{
-      fill(255,255,255);
-    }
+
+    fill(colorAngleY)
     text("Angle Y: "+Math.round(rotationY * 10) / 10+ "°",screen.width*0.5 -radBubble,(screen.height-(screen.height*0.25 / 2))-radBubble);
   }
   else
