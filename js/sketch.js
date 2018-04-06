@@ -57,22 +57,22 @@ function draw()
     image(bubbleImg,screen.width-(screen.width*0.15)-radBubble/2, (screen.height*0.75-radBubble/2)*map(cos(verticalBubbleAngle+90),-1,1,0.10,0.90))
 
    
-    if(rotationX <= 2 && rotationX >=2){
+    if(rotationX <= 2 && rotationX >=-2){
       fill(0, 255, 0);
     }
     else{
       fill(255,255,255);
     }
-    text("Angle : "+Math.round(rotationX * 10) / 10 +"°",screen.width-((screen.width*0.15)-100),screen.height/3);
+    text("Angle X: "+Math.round(rotationX * 10) / 10 +"°",(screen.width-(screen.width*0.15))-150,(screen.height*0.75+radBubble/2)*0.5);
     
-    if(rotationY <= 2 && rotationY >=2){
+    if(rotationY <= 2 && rotationY >=-2){
       fill(0, 255, 0);
     }
     ///////////////////////////////////////////////////////
     else{
       fill(255,255,255);
     }
-    text("Angle : "+Math.round(rotationY * 10) / 10+ "°",(screen.width* 1 / 6),(screen.height-(screen.height*0.25 / 2))-radBubble);
+    text("Angle Y: "+Math.round(rotationY * 10) / 10+ "°",screen.width*0.5 -radBubble/2,(screen.height-(screen.height*0.25 / 2))-radBubble);
   }
   else
   {
