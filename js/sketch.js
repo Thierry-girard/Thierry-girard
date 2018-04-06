@@ -4,12 +4,9 @@ var horizontalBubbleAngle;
 //Last X rotation
 var verticalBubbleAngle;
 
-
 const radBubble = 80;
 var bubbleImg;
 var backgroundImg;
-
-const DEBUG = false;
 
 function preload()
 {
@@ -40,41 +37,28 @@ function draw()
   //A plat
   if(rotationY != null && rotationX != null)
   {
+    //Horizontal bar
+    fill(87,68,46);
+    rect(screen.width*0.15-radBubble/2, screen.height-(screen.height* 1 / 6)-radBubble/2, screen.width*0.85+radBubble/2 ,radBubble, 40);
+
+    //Vertical bar
+    rect(screen.width-(screen.width*0.15)-radBubble/2, (screen.height*0.75-radBubble/2)*0.10, radBubble, (screen.height*0.75-radBubble/2)*0.95, 40);
+
     //Horizontal bubble
     let deltaRotationY = sin(rotationY) - sin(horizontalBubbleAngle);
     horizontalBubbleAngle += map(deltaRotationY,-2,2,-5,5)
 
-
-    fill(87,68,46);
-    rect(screen.width*0.15-radBubble/2, screen.height-(screen.height* 1 / 6)-radBubble/2, screen.width*0.80+radBubble/2 ,radBubble, 40);
-
-    rect(screen.width-(screen.width*0.15)-radBubble/2, (screen.height*0.75-radBubble/2)*0.10, radBubble, (screen.height*0.75-radBubble/2)*0.95, 40);
-
-    fill(255,255,0);
-    //ellipse(screen.width*map(cos(horizontalBubbleAngle+90),-1,1,0.10,0.9),screen.height-(screen.height*0.25 / 2)-radHorizontalBubble, radHorizontalBubble, radHorizontalBubble);
     image(bubbleImg,screen.width*map(cos(horizontalBubbleAngle+90),-1,1,0.15,0.85)-radBubble/2,screen.height-(screen.height* 1 / 6)-radBubble/2);
+
     //Vertical bubble
     let deltaRotationX = sin(rotationX) - sin(verticalBubbleAngle);
     verticalBubbleAngle += map(deltaRotationX,-2,2,-5,5)
 
-    fill(255,255,0);
-    //ellipse(screen.width-(screen.width*0.25/2)-radVerticalBubble, (screen.height*0.75-radHorizontalBubble)*map(cos(verticalBubbleAngle+90),-1,1,0.10,0.90), radVerticalBubble, radVerticalBubble);
     image(bubbleImg,screen.width-(screen.width*0.15)-radBubble/2, (screen.height*0.75-radBubble/2)*map(cos(verticalBubbleAngle+90),-1,1,0.10,0.90))
 
     fill(255,255,255);
     text("RotationX : "+Math.round(rotationX * 10) / 10,50,screen.height/3);
     text("RotationY : "+Math.round(rotationY * 10) / 10,50,screen.height-(screen.height*0.25 / 2)-radBubble);
-
-    if(DEBUG)
-    {
-      fill(0,0,0);
-      text("RotationX : "+rotationX,50,40);
-      text("RotationY : "+rotationY,50,70);
-      text("RotationZ : "+rotationZ,50,100);
-
-      text("verticalBubbleAngle : "+verticalBubbleAngle,50,140);
-      text("horizontalBubbleAngle : "+horizontalBubbleAngle,50,170);
-    }
   }
   else
   {
