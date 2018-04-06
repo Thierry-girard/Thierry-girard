@@ -63,7 +63,7 @@ function draw()
     else{
       fill(255,255,255);
     }
-    text("Angle X: "+Math.round(rotationX * 10) / 10 +"°",(screen.width-(screen.width*0.15))-150,(screen.height*0.75+radBubble/2)*0.5);
+    text("Angle X: "+Math.round(rotationX * 10) / 10 +"°",(screen.width-(screen.width*0.15))-200,(screen.height*0.75+radBubble/2)*0.5);
     
     if(rotationY <= 2 && rotationY >=-2){
       fill(0, 255, 0);
@@ -72,7 +72,7 @@ function draw()
     else{
       fill(255,255,255);
     }
-    text("Angle Y: "+Math.round(rotationY * 10) / 10+ "°",screen.width*0.5 -radBubble/2,(screen.height-(screen.height*0.25 / 2))-radBubble);
+    text("Angle Y: "+Math.round(rotationY * 10) / 10+ "°",screen.width*0.5 -radBubble,(screen.height-(screen.height*0.25 / 2))-radBubble);
   }
   else
   {
