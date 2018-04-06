@@ -29,7 +29,7 @@ if (workbox)
   },
   {
     "url": "index.html",
-    "revision": "35d3d38fe4429e64107467f5722566e1"
+    "revision": "bfdd45bec0f4a15d10dfffc82a07e302"
   },
   {
     "url": "js/static/p5.min.js",
